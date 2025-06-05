@@ -17,6 +17,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+            const learnMoreButtons = document.querySelectorAll('.learn-more');
+            
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = this.getAttribute('data-target');
+                    const description = document.getElementById(`desc-${target}`);
+                    const arrow = this.querySelector('.fas');
+                    
+                    if (description) {
+                        // Toggle the expanded class
+                        const isExpanded = description.classList.contains('expanded');
+                        
+                        if (isExpanded) {
+                            // Collapse
+                            description.classList.remove('expanded');
+                            this.innerHTML = 'Leer más <i class="fas fa-arrow-right"></i>';
+                        } else {
+                            // Expand
+                            description.classList.add('expanded');
+                            this.innerHTML = 'Leer menos <i class="fas fa-arrow-up"></i>';
+                        }
+                    }
+                });
+            });
+        });
+
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
@@ -572,7 +601,7 @@ function initializeFormImproved() {
 
 // Función para resetear las clases de animación
 function resetHeroAnimations(section) {
-    const elements = section.querySelectorAll('.hero-text, .hero-image, .hero-description, h1, p, .cta-button, .imgInicio');
+    const elements = section.querySelectorAll('.hero-text, .hero-image, .hero-description, h1, p, .cta-button, .imgInicio, .debt-image');
     
     elements.forEach(element => {
         element.classList.remove('slide-in-left', 'slide-in-right', 'slide-in-top', 'visible');
@@ -735,6 +764,62 @@ function setupRepeatingWorkAnimations() {
     });
 
     workObserver.observe(workSection);
+}
+
+// Configurar animaciones de solucion de deudas
+function setupRepeatingServiceAnimations() {
+   const debtSection = document.querySelector('#deuda');
+   if (!debtSection) return;
+
+   const serviceObserver = new IntersectionObserver((entries) => {
+       entries.forEach(entry => {
+           const debtText = entry.target.querySelector('.debt-text');
+           const debtImage = entry.target.querySelector('.debt-image');
+           const certificatesSection = entry.target.querySelector('.certificates-section');
+           
+           if (entry.isIntersecting) {
+               console.log('Sección de deuda visible - animando elementos');
+               
+               // Animar texto de deuda
+               if (debtText) {
+                   debtText.classList.remove('fade-in', 'visible');
+                   debtText.offsetHeight;
+                   setTimeout(() => {
+                       debtText.classList.add('fade-in', 'visible');
+                   }, 100);
+               }
+               
+               // Animar imagen de deuda
+               if (debtImage) {
+                   debtImage.classList.remove('slide-in-right', 'visible');
+                   debtImage.offsetHeight;
+                   setTimeout(() => {
+                       debtImage.classList.add('slide-in-right', 'visible');
+                   }, 300);
+               }
+               
+               // Animar sección de certificados
+               if (certificatesSection) {
+                   certificatesSection.classList.remove('fade-in', 'visible');
+                   certificatesSection.offsetHeight;
+                   setTimeout(() => {
+                       certificatesSection.classList.add('fade-in', 'visible');
+                   }, 600);
+               }
+               
+           } else {
+               // Remover animaciones cuando sale de vista
+               if (debtText) debtText.classList.remove('fade-in', 'visible');
+               if (debtImage) debtImage.classList.remove('slide-in-right', 'visible');
+               if (certificatesSection) certificatesSection.classList.remove('fade-in', 'visible');
+           }
+       });
+   }, {
+       threshold: 0.2,
+       rootMargin: '0px 0px -100px 0px'
+   });
+
+   serviceObserver.observe(debtSection);
 }
 
 // Inicializar todas las animaciones repetitivas

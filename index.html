@@ -22,6 +22,7 @@
                 <li><a href="#servicios">Nuestros Servicios</a></li>
                 <li><a href="#trabajo">Trabaja con nosotros</a></li>
                 <li><a href="#deuda">Soluciona tu deuda</a></li>
+                <li><a href="#privacidad">Protección de Datos</a></li>
             </ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
@@ -57,9 +58,9 @@
 
     <!-- Services Section -->
     <section id="servicios" class="services">
-            <div class="services-content">
-                <h2 class="fade-in">Explora nuestros servicios</h2>
-                <div class="scrolling-text-container">
+        <div class="services-content">
+            <h2 class="fade-in">Explora nuestros servicios</h2>
+            <div class="scrolling-text-container">
                 <div class="scrolling-text">
                     <span>Cobranza sin límites</span>
                     <span>Cobranza sin límites</span>
@@ -73,65 +74,65 @@
             </div>
             <div class="services-grid">
                 <div class="carrusel1">
-                    <div class="service-card fade-in">
-                        <div class="service-icon ">
+                    <div class="service-card fade-in" data-service="compra-cartera">
+                        <div class="service-icon">
                             <i class="fa-solid fa-wallet"></i>
                         </div>
-                        <div >
+                        <div>
                             <h3>Compra de Cartera</h3>
-                            <a href="#" class="learn-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="learn-more" data-target="compra-cartera">Leer más <i class="fas fa-arrow-right"></i></a>
                         </div>    
                     </div>
                     
-                    <div class="service-card fade-in">
+                    <div class="service-description" id="desc-compra-cartera">
                         <p class="serviciosText">Adquisición segura de acuerdo al mercado y cumplimiento normativo</p>
                     </div>
                 </div>
 
                 <div class="carrusel1">
-                    <div class="service-card fade-in">
-                        <div class="service-icon ">
+                    <div class="service-card fade-in" data-service="gestion-cobranzas">
+                        <div class="service-icon">
                             <i class="fa-solid fa-money-check-dollar"></i>
                         </div>
-                        <div >
+                        <div>
                             <h3>Gestión de Cobranzas</h3>
-                            <a href="#" class="learn-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="learn-more" data-target="gestion-cobranzas">Leer más <i class="fas fa-arrow-right"></i></a>
                         </div>    
                     </div>
                     
-                    <div class="service-card fade-in">
+                    <div class="service-description" id="desc-gestion-cobranzas">
                         <p class="serviciosText">Cobros efectivos con tecnología y experiencia especializada.</p>
                     </div>
                 </div>
 
                 <div class="carrusel1">
-                    <div class="service-card fade-in">
-                        <div class="service-icon ">
+                    <div class="service-card fade-in" data-service="contact-center">
+                        <div class="service-icon">
                             <i class="fa-solid fa-headset"></i>
                         </div>
-                        <div >
+                        <div>
                             <h3>Contact Center</h3>
-                            <a href="#" class="learn-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="learn-more" data-target="contact-center">Leer más <i class="fas fa-arrow-right"></i></a>
                         </div>    
                     </div>
                     
-                    <div class="service-card fade-in">
+                    <div class="service-description" id="desc-contact-center">
                         <p class="serviciosText">Personal capacitado y especializado en servicio al cliente.</p>
                     </div>
                 </div>
                 
                 <div class="carrusel1">
-                    <div class="service-card fade-in">
-                        <div class="service-icon ">
+                    <div class="service-card fade-in" data-service="fabrica-credito">
+                        <div class="service-icon">
                             <i class="fa-solid fa-credit-card"></i>
                         </div>
-                        <div >
+                        <div>
                             <h3>Fábrica de Crédito</h3>
-                            <a href="#" class="learn-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="learn-more" data-target="fabrica-credito">Leer más <i class="fas fa-arrow-right"></i></a>
                         </div>    
                     </div>
                     
-                    <div class="service-card fade-in">
+                    <div class="service-description" id="desc-fabrica-credito">
                         <p class="serviciosText">Procesamiento ágil, validación segura y digitalización.</p>
                     </div>
                 </div>
@@ -175,7 +176,7 @@
                 <!-- Botón modificado con ID para abrir el popup -->
                 <button class="cta-button" id="openPopupBtn">Empieza Ya</button>
             </div>
-            <div class="debt-image">
+            <div class="debt-image slide-in-right">
                 <img src="./image/Solucion de deuda.png" alt="Solución de deuda">
             </div>
         </div>
@@ -215,6 +216,102 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    <section id="privacidad" class="privacy-section">
+        <div class="privacy-content">
+            <div class="privacy-header">
+                <h2 class="fade-in">Protección de Datos Personales</h2>
+                <p class="fade-in">En INTELCOBRO S.A. protegemos tu información personal</p>
+            </div>
+
+            <div class="privacy-grid">
+                <div class="privacy-info fade-in">
+                    
+
+                    <div class="rights-summary">
+                        <h3><i class="fas fa-shield-alt"></i> Tus Derechos</h3>
+                        <div class="rights-grid">
+                            <div class="right-item">
+                                <div class="right-icon"><i class="fas fa-eye"></i></div>
+                                <div>
+                                    <h4>Acceso</h4>
+                                    <p>Conocer qué datos personales tratamos</p>
+                                </div>
+                            </div>
+                            <div class="right-item">
+                                <div class="right-icon"><i class="fas fa-edit"></i></div>
+                                <div>
+                                    <h4>Rectificación</h4>
+                                    <p>Modificar o actualizar tus datos</p>
+                                </div>
+                            </div>
+                            <div class="right-item">
+                                <div class="right-icon"><i class="fas fa-trash"></i></div>
+                                <div>
+                                    <h4>Eliminación</h4>
+                                    <p>Solicitar el borrado de tus datos</p>
+                                </div>
+                            </div>
+                            <div class="right-item">
+                                <div class="right-icon"><i class="fas fa-hand-paper"></i></div>
+                                <div>
+                                    <h4>Oposición</h4>
+                                    <p>Rechazar el uso de tus datos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="privacy-form-section fade-in">
+                    <div class="form-card">
+                        <h3><i class="fas fa-file-download"></i> Ejercer tus Derechos</h3>
+                        <p>Para ejercer cualquiera de estos derechos, descarga y completa nuestro formulario oficial.</p>
+                        
+                        <div class="form-requirements">
+                            <h4>Documentos requeridos:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Formulario completado</li>
+                                <li><i class="fas fa-check-circle"></i> Copia de cédula de identidad</li>
+                                <li><i class="fas fa-check-circle"></i> Fotografía </li>
+                                <li><i class="fas fa-check-circle"></i> Descripción clara de la solicitud</li>
+                            </ul>
+                        </div>
+
+                        <div class="form-actions">
+                            <a href="http://intelcobro.com/Formulario%20de%20Solicitud%20de%20Derechos%20ARCO/Formulario%20de%20Solicitud%20de%20Derechos%20ARCO.pdf" 
+                                target="_blank" class="download-btn" id="downloadFormBtn"  download="Formulario de Solicitud de Derechos ARCO.pdf">
+                                <i class="fas fa-download"></i>
+                                Descargar Formulario PDF
+                            </a>
+                            
+                            <div class="contact-info">
+                                <h4>Canal de Atención:</h4>
+                                <a href="mailto:protecciondedatospersonales@intelcobro.com" class="email-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    protecciondedatospersonales@intelcobro.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="privacy-footer fade-in">
+                <div class="commitment">
+                    <h3>Nuestro Compromiso</h3>
+                    <p>INTELCOBRO S.A. se compromete a proteger la intimidad y privacidad de los datos de sus colaboradores, clientes, proveedores y de toda persona cuyos datos hayan sido suministrados a la Compañía. Toda la información personal se obtiene de forma lícita y se trata bajo los principios de cumplimiento normativo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="custom-shape-divider-top-1748883963">
+            <svg  data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 390" preserveAspectRatio="none"><defs>
+                <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+                    <stop stop-color="rgba(160, 21, 224, 1)" offset="0%"></stop>
+                    <stop stop-color="rgba(83, 183, 245, 1)" offset="100%"></stop>
+                </linearGradient></defs>
+                <path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,0L48,24.5C96,49,192,98,288,130.7C384,163,480,180,576,155.2C672,131,768,65,864,89.8C960,114,1056,229,1152,285.8C1248,343,1344,343,1440,310.3C1536,278,1632,212,1728,196C1824,180,1920,212,2016,204.2C2112,196,2208,147,2304,122.5C2400,98,2496,98,2592,98C2688,98,2784,98,2880,155.2C2976,212,3072,327,3168,334.8C3264,343,3360,245,3456,236.8C3552,229,3648,310,3744,318.5C3840,327,3936,261,4032,245C4128,229,4224,261,4320,253.2C4416,245,4512,196,4608,196C4704,196,4800,245,4896,285.8C4992,327,5088,359,5184,310.3C5280,261,5376,131,5472,98C5568,65,5664,131,5760,204.2C5856,278,5952,359,6048,334.8C6144,310,6240,180,6336,163.3C6432,147,6528,245,6624,253.2C6720,261,6816,180,6864,138.8L6912,98L6912,490L6864,490C6816,490,6720,490,6624,490C6528,490,6432,490,6336,490C6240,490,6144,490,6048,490C5952,490,5856,490,5760,490C5664,490,5568,490,5472,490C5376,490,5280,490,5184,490C5088,490,4992,490,4896,490C4800,490,4704,490,4608,490C4512,490,4416,490,4320,490C4224,490,4128,490,4032,490C3936,490,3840,490,3744,490C3648,490,3552,490,3456,490C3360,490,3264,490,3168,490C3072,490,2976,490,2880,490C2784,490,2688,490,2592,490C2496,490,2400,490,2304,490C2208,490,2112,490,2016,490C1920,490,1824,490,1728,490C1632,490,1536,490,1440,490C1344,490,1248,490,1152,490C1056,490,960,490,864,490C768,490,672,490,576,490C480,490,384,490,288,490C192,490,96,490,48,490L0,490Z"></path></svg>
         </div>
     </section>
     <!-- Footer -->
