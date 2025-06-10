@@ -479,13 +479,33 @@ nav {
             to { transform: translateX(0); opacity: 1; }
         }    
 .slide-in-top {
-             animation: slideInTop 1s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
-        }
-        
-        @keyframes slideInTop {
-            from { transform: translateY(-500px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }             
+    animation: slideInTop 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+               float 3s ease-in-out 1.5s infinite;
+}
+
+@keyframes slideInTop {
+    0% { 
+        transform: translateY(-500px); 
+        opacity: 0; 
+    }
+    70% {
+        transform: translateY(15px);
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}          
 /* Services Section */
 .carrusel1 .service-card:first-child {
     justify-content: space-between;
@@ -958,29 +978,378 @@ footer {
     font-size: 1rem;
 }
 
-.whatsapp-float {
+ .float-buttons-container {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #25D366;
-    color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Botón de WhatsApp */
+.whatsapp-float {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-    transition: transform 0.3s ease;
-    z-index: 1000;
+    font-size: 28px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
+/* Botón de video con miniatura */
+.video-float {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #2ba8e0;
+    background: #2ba8e0;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(43, 168, 224, 0.3);
+    padding: 0;
+    outline: none;
+}
+
+.video-float:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(43, 168, 224, 0.4);
+    border-color: #1e90d4;
+}
+
+/* Wrapper para la miniatura del video */
+.video-thumbnail-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Video miniatura */
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Overlay con ícono de play */
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.play-overlay i {
+    color: white;
+    font-size: 20px;
+    margin-left: 2px; /* Centrar mejor el triángulo */
+}
+
+.video-float:hover .play-overlay {
+    opacity: 1;
+}
+
+/* Animación de pulso */
+.video-float::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 2px solid rgba(43, 168, 224, 0.6);
+    animation: pulse 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .float-buttons-container {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+
+    .video-float {
+        width: 60px;
+        height: 60px;
+        border-width: 2px;
+    }
+
+    .play-overlay i {
+        font-size: 16px;
+    }
+}
+
+/* Estilos del modal (mantener los existentes) */
+.video-modal {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    width: 350px;
+    height: 250px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 2000;
+    display: none;
+    transform: translateY(-50%) scale(0.8);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 2px solid #e1e5e9;
+}
+
+.video-modal.active {
+    display: block;
+    transform: translateY(-50%) scale(1);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 10px;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.video-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.7);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.video-close:hover {
+    background: rgba(255,0,0,0.8);
+    transform: scale(1.1);
+}
+
+.video-controls-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+    z-index: 15;
+}
+
+.video-modal:hover .video-controls-overlay,
+.video-controls-overlay:hover {
+    opacity: 1;
+}
+
+.video-controls-overlay button {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin: 0 8px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    min-width: 40px;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    pointer-events: auto;
+    z-index: 16;
+}
+
+.video-controls-overlay button:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+}
+
+.video-controls-overlay button:active {
+    transform: scale(0.95);
+    background: rgba(255,255,255,0.6);
+}
+
+/* Ventana flotante del video */
+.video-modal {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    width: 230px;
+    height: 350px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 2000;
+    display: none;
+    transform: translateY(-50%) scale(0.8);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 2px solid #e1e5e9;
+}
+
+.video-modal.active {
+    display: block;
+    transform: translateY(-50%) scale(1);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 10px;
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.video-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.7);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+
+/* Controles del video en overlay */
+.video-controls-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-modal:hover .video-controls-overlay {
+    opacity: 1;
+}
+
+.video-controls-overlay button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    margin: 0 5px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.video-controls-overlay button:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .video-modal {
+        width: 280px;
+        height: 200px;
+        right: 10px;
+    }
+    
+    .video-close {
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+    }
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {

@@ -830,6 +830,153 @@ function initRepeatingAnimations() {
     setupRepeatingWorkAnimations();
 }
 
+// JAVASCRIPT ACTUALIZADO PARA EL BOTÓN CON MINIATURA:
+
+document.addEventListener('DOMContentLoaded', function() {
+    const videoFloatBtn = document.getElementById('videoFloatBtn');
+    const videoModal = document.getElementById('videoModal');
+    const videoCloseBtn = document.getElementById('videoCloseBtn');
+    const modalVideo = document.getElementById('modalVideo');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const muteBtn = document.getElementById('muteBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const thumbnailVideo = document.querySelector('.video-thumbnail');
+
+    // Asegurar que la miniatura se reproduzca automáticamente
+    if (thumbnailVideo) {
+        thumbnailVideo.play().catch(err => {
+            console.log('Autoplay de miniatura bloqueado:', err);
+        });
+    }
+
+    // Abrir ventana flotante
+    videoFloatBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        videoModal.classList.add('active');
+        
+        // Pausar la miniatura cuando se abre el modal
+        if (thumbnailVideo) {
+            thumbnailVideo.pause();
+        }
+    });
+
+    // Cerrar ventana flotante
+    function closeVideoModal() {
+        videoModal.classList.remove('active');
+        modalVideo.pause();
+        modalVideo.currentTime = 0;
+        if (playPauseBtn) {
+            playPauseBtn.textContent = '▶️';
+        }
+        
+        // Reanudar la miniatura cuando se cierra el modal
+        if (thumbnailVideo) {
+            thumbnailVideo.play().catch(err => {
+                console.log('Error al reanudar miniatura:', err);
+            });
+        }
+    }
+
+    if (videoCloseBtn) {
+        videoCloseBtn.addEventListener('click', closeVideoModal);
+    }
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+            closeVideoModal();
+        }
+    });
+
+    // CONTROLES DEL VIDEO
+    
+    // PLAY/PAUSE
+    if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            if (modalVideo.paused) {
+                modalVideo.play().then(() => {
+                    playPauseBtn.textContent = '⏸️';
+                }).catch(err => {
+                    console.error('Error al reproducir:', err);
+                });
+            } else {
+                modalVideo.pause();
+                playPauseBtn.textContent = '▶️';
+            }
+        });
+    }
+
+    // MUTE/UNMUTE
+    if (muteBtn) {
+        muteBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            modalVideo.muted = !modalVideo.muted;
+            muteBtn.textContent = modalVideo.muted ? '🔇' : '🔊';
+        });
+    }
+
+    // FULLSCREEN
+    if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            if (modalVideo.requestFullscreen) {
+                modalVideo.requestFullscreen().catch(err => {
+                    console.error('Error fullscreen:', err);
+                });
+            } else if (modalVideo.webkitRequestFullscreen) {
+                modalVideo.webkitRequestFullscreen();
+            } else if (modalVideo.msRequestFullscreen) {
+                modalVideo.msRequestFullscreen();
+            }
+        });
+    }
+
+    // Click en el video para play/pause
+    modalVideo.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (playPauseBtn) {
+            playPauseBtn.click();
+        }
+    });
+
+    // Auto-pause cuando el video termina
+    modalVideo.addEventListener('ended', function() {
+        if (playPauseBtn) {
+            playPauseBtn.textContent = '▶️';
+        }
+    });
+
+    // Actualizar botón cuando cambia el estado
+    modalVideo.addEventListener('play', function() {
+        if (playPauseBtn) {
+            playPauseBtn.textContent = '⏸️';
+        }
+    });
+
+    modalVideo.addEventListener('pause', function() {
+        if (playPauseBtn) {
+            playPauseBtn.textContent = '▶️';
+        }
+    });
+
+    // Manejar errores de la miniatura
+    if (thumbnailVideo) {
+        thumbnailVideo.addEventListener('error', function(e) {
+            console.error('Error en video miniatura:', e);
+            // Fallback: mostrar ícono si el video no carga
+            const playOverlay = videoFloatBtn.querySelector('.play-overlay');
+            if (playOverlay) {
+                playOverlay.style.opacity = '1';
+                playOverlay.style.background = 'rgba(43, 168, 224, 0.9)';
+            }
+        });
+    }
+});
 // ===============================================
 // INICIALIZACIÓN PRINCIPAL
 // ===============================================

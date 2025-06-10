@@ -343,10 +343,45 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/+593983328956" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <div class="float-buttons-container">
+
+        <!-- Botón de Video con Miniatura -->
+        <button class="video-float" id="videoFloatBtn" title="Ver video promocional">
+            <div class="video-thumbnail-wrapper">
+                <video class="video-thumbnail" autoplay loop muted playsinline>
+                    <source src="./image/VideoIntelcobroIA.mp4" type="video/mp4">
+                </video>
+                <div class="play-overlay">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </button>
+        
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/+593983328956" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Ventana Flotante del Video -->
+<div class="video-modal" id="videoModal">
+    <div class="video-container">
+        <!-- Botón cerrar -->
+        <button class="video-close" id="videoCloseBtn">&times;</button>
+        
+        <!-- Video -->
+        <video id="modalVideo" preload="metadata" muted>
+            <source src="./image/VideoIntelcobroIA.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Controles overlay -->
+        <div class="video-controls-overlay">
+            <button id="playPauseBtn">▶️</button>
+            <button id="muteBtn">🔊</button>
+            <button id="fullscreenBtn">⛶</button>
+        </div>
+    </div>
+</div>
 <!-- POPUP DEL FORMULARIO -->
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup-container">
