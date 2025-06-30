@@ -10,445 +10,185 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav>
+   <body>
+    <header class="header">
+        <div class="nav-container">
             <div class="logo">
-                <img class="imgLogo" src="./image/LogoIntelcobro.png" alt="LogoImagen">
-            </div>     
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Nuestros Servicios</a></li>
-                <li><a href="#trabajo">Trabaja con nosotros</a></li>
-                <li><a href="#deuda">Soluciona tu deuda</a></li>
-                <li><a href="#privacidad">Protección de Datos</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+                <img class="logo" src="./image/LogoIntelcobro.png" alt="imglogointelcobro">
             </div>
-        </nav>
+            <div class="nav-menu">
+                <a href="#" class="nav-item active" data-section="inicio">Inicio</a>
+                <a href="#" class="nav-item" data-section="servicios">Servicios</a>
+                <a href="#" class="nav-item" data-section="trabaja">Trabaja con nosotros</a>
+                <a href="#" class="nav-item" data-section="soluciona">Soluciona tu deuda</a>
+                <a href="#" class="nav-item" data-section="proteccion">Protección de datos</a>
+            </div>
+            <a href="#contacto" class="contact-btn">Contáctanos</a>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero gradient-bg">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        
-        <div class="hero-content">
-            <div class="hero-text slide-in-left">
-                <h1>Conecta con el futuro de la cobranza</h1>
+    <main class="main-content">
+        <!-- Left Side - Circular Navigation -->
+        <div class="left-side">
+            <div class="circular-nav">
+                <div class="central-circle"></div>
+                <div class="nav-circle inicio active" data-section="inicio">Inicio</div>
+                <div class="nav-circle servicios" data-section="servicios">Servicios</div>
+                <div class="nav-circle trabajo" data-section="trabaja">Trabaja con nosotros</div>
+                <div class="nav-circle proteccion" data-section="proteccion">Protección de datos</div>
+                <div class="nav-circle soluciona" data-section="soluciona">Soluciona tu deuda</div>
             </div>
-            <div class="hero-image slide-in-top">
-                <img class="imgInicio" src="./image/3d.png" alt="fotoInicio"/>
+        </div>
+
+        <!-- Avatar positioned between sections -->
+        <div class="avatar-container">
+            <div class="avatar">
+                <video class="videoAvatar" src="./image/VideoIntelcobroAvatar.mp4" autoplay muted loop></video>
             </div>
-            <div class="hero-text slide-in-right">
-                <p>Tecnología inteligente, talento humano y gestión que impulsa tu productividad</p>
-                <a href="https://wa.me/+593983328956" target="_blank" class="cta-button">Contáctanos</a>
-            </div>
+        </div>
+
+        <!-- Right Side - Content -->
+        <div class="right-side">
+            <!-- Inicio Section -->
+            <section class="section active" id="inicio">
+                <div class="content-area">
+                    <h1 class="main-title">Conecta con el futuro de la cobranza</h1>
+                </div>
+            </section>
             
-        </div>
-        <div class="custom-shape-divider-bottom-1748883963">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-            </svg>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicios" class="services">
-        <div class="services-content">
-            <h2 class="fade-in">Explora nuestros servicios</h2>
-            <div class="scrolling-text-container">
-                <div class="scrolling-text">
-                    <span>Cobranza sin límites</span>
-                    <span>Cobranza sin límites</span>
-                    <span>Cobranza sin límites</span>
-                    <span>Cobranza sin límites</span>
-                    <span>Cobranza sin límites</span>
-                    <span>Cobranza sin límites</span>
-                    <span>Cobranza sin límites</span>
-                    <span>Cobranza sin límites</span>
-                </div>
-            </div>
-            <div class="services-grid">
-                <div class="carrusel1">
-                    <div class="service-card fade-in" data-service="compra-cartera">
-                        <div class="service-icon">
-                            <i class="fa-solid fa-wallet"></i>
-                        </div>
-                        <div>
-                            <h3>Compra de Cartera</h3>
-                            <a href="#" class="learn-more" data-target="compra-cartera">Leer más <i class="fas fa-arrow-right"></i></a>
-                        </div>    
-                    </div>
-                    
-                    <div class="service-description" id="desc-compra-cartera">
-                        <p class="serviciosText">Adquisición segura de acuerdo al mercado y cumplimiento normativo</p>
-                    </div>
-                </div>
-
-                <div class="carrusel1">
-                    <div class="service-card fade-in" data-service="gestion-cobranzas">
-                        <div class="service-icon">
-                            <i class="fa-solid fa-money-check-dollar"></i>
-                        </div>
-                        <div>
-                            <h3>Gestión de Cobranzas</h3>
-                            <a href="#" class="learn-more" data-target="gestion-cobranzas">Leer más <i class="fas fa-arrow-right"></i></a>
-                        </div>    
-                    </div>
-                    
-                    <div class="service-description" id="desc-gestion-cobranzas">
-                        <p class="serviciosText">Cobros efectivos con tecnología y experiencia especializada.</p>
-                    </div>
-                </div>
-
-                <div class="carrusel1">
-                    <div class="service-card fade-in" data-service="contact-center">
-                        <div class="service-icon">
-                            <i class="fa-solid fa-headset"></i>
-                        </div>
-                        <div>
-                            <h3>Contact Center</h3>
-                            <a href="#" class="learn-more" data-target="contact-center">Leer más <i class="fas fa-arrow-right"></i></a>
-                        </div>    
-                    </div>
-                    
-                    <div class="service-description" id="desc-contact-center">
-                        <p class="serviciosText">Personal capacitado y especializado en servicio al cliente.</p>
-                    </div>
-                </div>
-                
-                <div class="carrusel1">
-                    <div class="service-card fade-in" data-service="fabrica-credito">
-                        <div class="service-icon">
-                            <i class="fa-solid fa-credit-card"></i>
-                        </div>
-                        <div>
-                            <h3>Fábrica de Crédito</h3>
-                            <a href="#" class="learn-more" data-target="fabrica-credito">Leer más <i class="fas fa-arrow-right"></i></a>
-                        </div>    
-                    </div>
-                    
-                    <div class="service-description" id="desc-fabrica-credito">
-                        <p class="serviciosText">Procesamiento ágil, validación segura y digitalización.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="custom-shape-divider-bottom-1748883963">
-            <img class= "imgFondo" src="./image/FondoIntelC.png" alt="fondoServicios">
-        </div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="trabajo" class="work">
-        <div class="sphere sphere-1"></div>
-        <div class="sphere sphere-2"></div>
-        <div class="sphere sphere-3"></div>
-        <div class="sphere sphere-4"></div>
-        <div class="sphere sphere-5"></div>
-        <div class="sphere sphere-6"></div>
-        <div class="work-content">
-            <div class="work-text slide-in-left">
-                <h2>Trabaja con nosotros</h2>
-                <h3><strong>¡Destaca en Intelcobro!</strong></h3>
-                <p>Si tienes talento, confianza y ambición de llegar alto. Envíanos tu hoja de vida a talentohumano@intelcobro.com y sé parte de un equipo que impulsa tu crecimiento y celebra tus éxitos.</p>
-            </div>
-            <div class="work-newsletter slide-in-right">
-                <h3>Recibe nuevas noticias y nuestra revista!</h3>
-                <div class="email-signup">
-                    <input type="email" class="email-input" placeholder="Ingresa tu email">
-                    <button class="email-submit"><i class="fas fa-envelope"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Debt Solution Section -->
-    <section id="deuda" class="debt-solution gradient-bg">
-         <div class="debt-content">
-            <div class="debt-text">
-                <h2>SOLUCIONA TU DEUDA</h2>
-                <p>Recupera tu tranquilidad financiera con soluciones efectivas.</p>
-                <!-- Botón modificado con ID para abrir el popup -->
-                <button class="cta-button" id="openPopupBtn">Empieza Ya</button>
-            </div>
-            <div class="debt-image slide-in-right">
-                <img src="./image/Solucion de deuda.png" alt="Solución de deuda">
-            </div>
-        </div>
-        
-
-        <div class="certificates-section">
-            <div class="certificates-content">
-                <h3 class="certificates-title">Certificados para brindar confianza y seguridad</h3>
-                <div class="certificates-carousel">
-                    <div class="certificates-track">
-                        <!-- Primer grupo de certificados -->
-                        <div class="certificate-group">
-                            <div class="certificate-item">
-                                <img src="./image/CarruselCertificados.png" alt="Certificado 1">
+            <!-- Servicios Section -->
+            <section class="section" id="servicios">
+                <div class="servicios-section">
+                    <h2 class="servicios-title">Nuestros Servicios</h2>
+                    <div class="carousel-container">
+                        <div class="carousel" id="servicesCarousel">
+                            <div class="service-card">
+                                <div class="service-icon">💳</div>
+                                <h3 class="service-title">Compra de Cartera</h3>
+                                <p>Adquisición segura de acuerdo al mercado y cumplimiento normativo</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">📊</div>
+                                <h3 class="service-title">Gestión de Cobranzas</h3>
+                                <p>Cobros efectivos con tecnología y experiencia especializada</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">📞</div>
+                                <h3 class="service-title">Contact Center</h3>
+                                <p>Personal capacitado y especializado en servicio al cliente</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">🏭</div>
+                                <h3 class="service-title">Fábrica de Crédito</h3>
+                                <p>Procesamiento ágil, validación segura y digitalización</p>
                             </div>
                         </div>
-                        
-                        <!-- Espacio entre grupos -->
-                        <div style="width: 80px;"></div>
-                        
-                        <!-- Segundo grupo (repetición) -->
-                        <div class="certificate-group">
-                            <div class="certificate-item">
-                                <img src="./image/CarruselCertificados.png" alt="Certificado 1">
-                            </div>
-                        </div>
-
-                        <!-- Espacio entre grupos -->
-                        <div style="width: 80px;"></div>
-                        
-                        <!-- Tercer grupo (repetición) -->
-                        <div class="certificate-group">
-                            <div class="certificate-item">
-                                <img src="./image/CarruselCertificados.png" alt="Certificado 1">
-                            </div>
+                        <div class="carousel-nav">
+                            <span class="carousel-dot active" data-slide="0"></span>
+                            <span class="carousel-dot" data-slide="1"></span>
+                            <span class="carousel-dot" data-slide="2"></span>
+                            <span class="carousel-dot" data-slide="3"></span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <section id="privacidad" class="privacy-section">
-        <div class="privacy-content">
-            <div class="privacy-header">
-                <h2 class="fade-in">Protección de Datos Personales</h2>
-                <p class="fade-in">En INTELCOBRO S.A. protegemos tu información personal</p>
-            </div>
+            </section>
 
-            <div class="privacy-grid">
-                <div class="privacy-info fade-in">
+            <!-- Trabaja Section -->
+            <section class="section" id="trabaja">
+                <div class="trabajo-section">
+                    <h2>¡Destaca en Intelcobro!</h2>
+                    <p>Si tienes talento, confianza y ambición de llegar alto. Envíanos tu hoja de vida a talentohumano@intelcobro.com y sé parte de un equipo que impulsa tu crecimiento y potenciar tus talentos.</p>
+                    <div class="newsletter-form">
+                        <h3>¡Recibe nuevas noticias y nuestra revista!</h3>
+                        <div class="form-group">
+                            <input type="email" placeholder="Ingresa tu email">
+                            <button class="btn-subscribe">📧</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Proteccion Section -->
+            <section class="section" id="proteccion">
+                <div class="proteccion-section">
+                    <div class="proteccion-right">
+                        <h2 style="color: #070E22; margin-bottom: 30px;">Tus Derechos</h2>
+                        <div class="form-field">
+                            <label>Cédula</label>
+                            <input type="text" placeholder="Ingresa tu número de cédula">
+                        </div>
+                        <div class="form-field">
+                            <label>Nombres</label>
+                            <input type="text" placeholder="Ingresa tu nombre">
+                        </div>
+                        <div class="form-field">
+                            <label>Celular</label>
+                            <input type="tel" placeholder="Ingresa tu celular">
+                        </div>
+                        <div class="form-field">
+                            <label>Correo</label>
+                            <input type="email" placeholder="Ingresa tu correo">
+                        </div>
+                        <div class="form-field">
+                            <label>Detalle de la deuda</label>
+                            <textarea placeholder="Ingresa el detalle de tu deuda" rows="4"></textarea>
+                        </div>
+                        <button class="btn-enviar" onclick="downloadPDF()">✓ Enviar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Soluciona Section -->
+            <section class="section" id="soluciona">
+                <div class="soluciona-section">
+                    <div class="wheel-container" id="wheel-container">
+                        <div class="wheel-image" id="wheel">
+                            <div class="wheel-center">GIRA</div>
+                        </div>
+                    </div>
+                    <button class="btn-girar" onclick="spinWheel()">GIRAR</button>
                     
+                    <div class="discount-cards" id="discount-cards">
+                        <div class="discount-card green" onclick="selectDiscount(25)">
+                            <div class="discount-number">25</div>
+                            <div class="discount-text">% OFF</div>
+                        </div>
+                        <div class="discount-card center" onclick="selectDiscount(15)">
+                            <div class="discount-number">15</div>
+                            <div class="discount-text">% OFF</div>
+                        </div>
+                        <div class="discount-card green" onclick="selectDiscount(10)">
+                            <div class="discount-number">10</div>
+                            <div class="discount-text">% OFF</div>
+                        </div>
+                    </div>
 
-                    <div class="rights-summary">
-                        <h3><i class="fas fa-shield-alt"></i> Tus Derechos</h3>
-                        <div class="rights-grid">
-                            <div class="right-item">
-                                <div class="right-icon"><i class="fas fa-eye"></i></div>
-                                <div>
-                                    <h4>Acceso</h4>
-                                    <p>Conocer qué datos personales tratamos</p>
+                    <div class="final-form" id="final-form">
+                        <div class="final-form-content">
+                            <div class="form-left">
+                                <div class="discount-display" id="selected-discount">15%</div>
+                                <div class="form-description">
+                                    Por favor ingresa la siguiente información y uno de nuestros asesores se comunicará contigo.
                                 </div>
                             </div>
-                            <div class="right-item">
-                                <div class="right-icon"><i class="fas fa-edit"></i></div>
-                                <div>
-                                    <h4>Rectificación</h4>
-                                    <p>Modificar o actualizar tus datos</p>
-                                </div>
-                            </div>
-                            <div class="right-item">
-                                <div class="right-icon"><i class="fas fa-trash"></i></div>
-                                <div>
-                                    <h4>Eliminación</h4>
-                                    <p>Solicitar el borrado de tus datos</p>
-                                </div>
-                            </div>
-                            <div class="right-item">
-                                <div class="right-icon"><i class="fas fa-hand-paper"></i></div>
-                                <div>
-                                    <h4>Oposición</h4>
-                                    <p>Rechazar el uso de tus datos</p>
-                                </div>
+                            <div class="form-right">
+                                <input type="text" placeholder="Cédula">
+                                <input type="text" placeholder="Nombres">
+                                <input type="tel" placeholder="Celular">
+                                <input type="email" placeholder="Correo">
+                                <textarea placeholder="Detalle de la deuda" rows="4"></textarea>
+                                <button class="btn-enviar-final">Enviar</button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
+        </div>
+    </main>
 
-                <div class="privacy-form-section fade-in">
-                    <div class="form-card">
-                        <h3><i class="fas fa-file-download"></i> Ejercer tus Derechos</h3>
-                        <p>Para ejercer cualquiera de estos derechos, descarga y completa nuestro formulario oficial.</p>
-                        
-                        <div class="form-requirements">
-                            <h4>Documentos requeridos:</h4>
-                            <ul>
-                                <li><i class="fas fa-check-circle"></i> Formulario completado</li>
-                                <li><i class="fas fa-check-circle"></i> Copia de cédula de identidad</li>
-                                <li><i class="fas fa-check-circle"></i> Fotografía </li>
-                                <li><i class="fas fa-check-circle"></i> Descripción clara de la solicitud</li>
-                            </ul>
-                        </div>
-
-                        <div class="form-actions">
-                            <a href="http://intelcobro.com/Formulario%20de%20Solicitud%20de%20Derechos%20ARCO/Formulario%20de%20Solicitud%20de%20Derechos%20ARCO.pdf" 
-                                target="_blank" class="download-btn" id="downloadFormBtn"  download="Formulario de Solicitud de Derechos ARCO.pdf">
-                                <i class="fas fa-download"></i>
-                                Descargar Formulario PDF
-                            </a>
-                            
-                            <div class="contact-info">
-                                <h4>Canal de Atención:</h4>
-                                <a href="mailto:protecciondedatospersonales@intelcobro.com" class="email-contact">
-                                    <i class="fas fa-envelope"></i>
-                                    protecciondedatospersonales@intelcobro.com
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="privacy-footer fade-in">
-                <div class="commitment">
-                    <h3>Nuestro Compromiso</h3>
-                    <p>INTELCOBRO S.A. se compromete a proteger la intimidad y privacidad de los datos de sus colaboradores, clientes, proveedores y de toda persona cuyos datos hayan sido suministrados a la Compañía. Toda la información personal se obtiene de forma lícita y se trata bajo los principios de cumplimiento normativo.</p>
-                </div>
-            </div>
-        </div>
-        <div class="custom-shape-divider-top-1748883963">
-            <svg  data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 390" preserveAspectRatio="none"><defs>
-                <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
-                    <stop stop-color="rgba(160, 21, 224, 1)" offset="0%"></stop>
-                    <stop stop-color="rgba(83, 183, 245, 1)" offset="100%"></stop>
-                </linearGradient></defs>
-                <path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,0L48,24.5C96,49,192,98,288,130.7C384,163,480,180,576,155.2C672,131,768,65,864,89.8C960,114,1056,229,1152,285.8C1248,343,1344,343,1440,310.3C1536,278,1632,212,1728,196C1824,180,1920,212,2016,204.2C2112,196,2208,147,2304,122.5C2400,98,2496,98,2592,98C2688,98,2784,98,2880,155.2C2976,212,3072,327,3168,334.8C3264,343,3360,245,3456,236.8C3552,229,3648,310,3744,318.5C3840,327,3936,261,4032,245C4128,229,4224,261,4320,253.2C4416,245,4512,196,4608,196C4704,196,4800,245,4896,285.8C4992,327,5088,359,5184,310.3C5280,261,5376,131,5472,98C5568,65,5664,131,5760,204.2C5856,278,5952,359,6048,334.8C6144,310,6240,180,6336,163.3C6432,147,6528,245,6624,253.2C6720,261,6816,180,6864,138.8L6912,98L6912,490L6864,490C6816,490,6720,490,6624,490C6528,490,6432,490,6336,490C6240,490,6144,490,6048,490C5952,490,5856,490,5760,490C5664,490,5568,490,5472,490C5376,490,5280,490,5184,490C5088,490,4992,490,4896,490C4800,490,4704,490,4608,490C4512,490,4416,490,4320,490C4224,490,4128,490,4032,490C3936,490,3840,490,3744,490C3648,490,3552,490,3456,490C3360,490,3264,490,3168,490C3072,490,2976,490,2880,490C2784,490,2688,490,2592,490C2496,490,2400,490,2304,490C2208,490,2112,490,2016,490C1920,490,1824,490,1728,490C1632,490,1536,490,1440,490C1344,490,1248,490,1152,490C1056,490,960,490,864,490C768,490,672,490,576,490C480,490,384,490,288,490C192,490,96,490,48,490L0,490Z"></path></svg>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h2>INTELCOBRO S.A.</h3>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/Intelcobro/?locale=es_LA" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/intelcobro_contact_center/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/intelcobro/about/"target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.tiktok.com/@intelcobro"><i class="fab fa-tiktok"target="_blank"></i></a>
-                </div>
-                <p>(02) 515-8200</p>
-            </div>
-            <div class="footerDirecciones">
-                <div class="footerDireccion">
-                    <h3>Quito</h3>
-                    <a href="https://www.google.com/maps?q=-0.1937818,-78.484932" target="_blank"> Av. De La República 500 y pasaje Carrión, Edificio PUCARÁ, piso 12.- Frente al antiguo Edificio Movistar. </a>
-                </div>
-                <div class="footerDireccion">
-                    <h3>Guayaquil</h3>
-                    <a href="https://www.google.com/maps?q=-2.1746291,-79.9139213" target="_blank">Av. Carlos Julio Arosemena Km. 2.5 y las Monjas, Edificio GRANASA, piso 5. - Frente a Almacenes KITTON</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 DoUp. All rights reserved. | Privacy Policy | Terms of Service | Cookies Settings</p>
-        </div>
+    <footer class="footer">
+        <p>2025 DoUp. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Cookies Settings</a></p>
     </footer>
-
-    <div class="float-buttons-container">
-
-        <!-- Botón de Video con Miniatura -->
-        <button class="video-float" id="videoFloatBtn" title="Ver video promocional">
-            <div class="video-thumbnail-wrapper">
-                <video class="video-thumbnail" autoplay loop muted playsinline>
-                    <source src="./image/VideoIntelcobroIA.mp4" type="video/mp4">
-                </video>
-                <div class="play-overlay">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-        </button>
-        
-        <!-- Botón de WhatsApp -->
-        <a href="https://wa.me/+593983328956" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-
-    <!-- Ventana Flotante del Video -->
-<div class="video-modal" id="videoModal">
-    <div class="video-container">
-        <!-- Botón cerrar -->
-        <button class="video-close" id="videoCloseBtn">&times;</button>
-        
-        <!-- Video -->
-        <video id="modalVideo" preload="metadata" muted>
-            <source src="./image/VideoIntelcobroIA.mp4" type="video/mp4">
-        </video>
-        
-        <!-- Controles overlay -->
-        <div class="video-controls-overlay">
-            <button id="playPauseBtn">▶️</button>
-            <button id="muteBtn">🔊</button>
-            <button id="fullscreenBtn">⛶</button>
-        </div>
-    </div>
-</div>
-<!-- POPUP DEL FORMULARIO -->
-    <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-container">
-            <!-- Header del popup -->
-            <div class="popup-header">
-                <button class="close-btn" id="closePopupBtn">&times;</button>
-                <h2>Soluciona tu Deuda</h2>
-                <p>Completa la información y te contactaremos pronto</p>
-            </div>
-
-            <!-- Contenido del formulario -->
-            <div class="popup-content">
-                <form id="debtForm">
-                    <div class="form-group">
-                        <label for="cedula">Número de Cédula:</label>
-                        <div class="input-container">
-                            <i class="fas fa-id-card input-icon"></i>
-                            <input type="text" id="cedula" name="cedula" class="form-input" placeholder="Ingresa tu número de cédula" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nombres">Nombres Completos:</label>
-                        <div class="input-container">
-                            <i class="fas fa-user input-icon"></i>
-                            <input type="text" id="nombres" name="nombres" class="form-input" placeholder="Ingresa tus nombres completos" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="celular">Celular:</label>
-                        <div class="input-container">
-                            <i class="fas fa-phone input-icon"></i>
-                            <input type="tel" id="celular" name="celular" class="form-input" placeholder="Ingresa tu número de celular" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico:</label>
-                        <div class="input-container">
-                            <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="Ingresa tu correo electrónico" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="detalleDeuda">Detalle de la deuda a solucionar:</label>
-                        <div class="input-container">
-                            <textarea id="detalleDeuda" name="detalleDeuda" class="form-input form-textarea" placeholder="Describe detalladamente tu situación de deuda..." required></textarea>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
-                        Enviar Solicitud
-                    </button>
-                </form>
-
-                <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle" style="font-size: 3rem; color: #22c55e; margin-bottom: 15px;"></i>
-                    <h3>¡Solicitud Enviada!</h3>
-                    <p>Te contactaremos pronto para ayudarte con tu situación.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
