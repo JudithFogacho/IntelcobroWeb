@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
    <body>
-    <header class="header">
+      <header class="header">
         <div class="nav-container">
             <div class="logo">
                 <img class="logo" src="./image/LogoIntelcobro.png" alt="imglogointelcobro">
@@ -112,28 +112,50 @@
             <section class="section" id="proteccion">
                 <div class="proteccion-section">
                     <div class="proteccion-right">
-                        <h2 style="color: #070E22; margin-bottom: 30px;">Tus Derechos</h2>
-                        <div class="form-field">
-                            <label>Cédula</label>
-                            <input type="text" placeholder="Ingresa tu número de cédula">
+                        <!-- Sección Tus Derechos -->
+                        <div class="derechos-section">
+                            <h2 class="derechos-title">🛡️ Tus Derechos</h2>
+                            
+                            <div class="derechos-grid">
+                                <div class="derecho-item">
+                                    <div class="derecho-icon">👁️</div>
+                                    <div class="derecho-text">
+                                        <h4>Acceso</h4>
+                                        <p>Conoce qué datos tratamos</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="derecho-item">
+                                    <div class="derecho-icon">✏️</div>
+                                    <div class="derecho-text">
+                                        <h4>Rectificación</h4>
+                                        <p>Modificar tus datos</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="derecho-item">
+                                    <div class="derecho-icon">🗑️</div>
+                                    <div class="derecho-text">
+                                        <h4>Eliminación</h4>
+                                        <p>Borrar tus datos</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="derecho-item">
+                                    <div class="derecho-icon">🚫</div>
+                                    <div class="derecho-text">
+                                        <h4>Oposición</h4>
+                                        <p>Rechazar el uso</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="ejercer-derechos">
+                                <h3>Ejercer tus Derechos</h3>
+                                <p>Descarga y completa nuestro formulario oficial para ejercer cualquiera de estos derechos</p>
+                                <a class="btn-enviar" href="http://intelcobro.com/Formulario%20de%20Solicitud%20de%20Derechos%20ARCO/Formulario%20de%20Solicitud%20de%20Derechos%20ARCO.pdf" target="_blank" download="Formulario de Solicitud de Derechos ARCO.pdf">✓ Descargar Formulario</a>
+                            </div>
                         </div>
-                        <div class="form-field">
-                            <label>Nombres</label>
-                            <input type="text" placeholder="Ingresa tu nombre">
-                        </div>
-                        <div class="form-field">
-                            <label>Celular</label>
-                            <input type="tel" placeholder="Ingresa tu celular">
-                        </div>
-                        <div class="form-field">
-                            <label>Correo</label>
-                            <input type="email" placeholder="Ingresa tu correo">
-                        </div>
-                        <div class="form-field">
-                            <label>Detalle de la deuda</label>
-                            <textarea placeholder="Ingresa el detalle de tu deuda" rows="4"></textarea>
-                        </div>
-                        <button class="btn-enviar" onclick="downloadPDF()">✓ Enviar</button>
                     </div>
                 </div>
             </section>

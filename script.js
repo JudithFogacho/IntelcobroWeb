@@ -1,12 +1,30 @@
 let currentSlide = 0;
-        const totalSlides = 4;
+const totalSlides = 4;
+let currentRotation = 0;
+
+        // Mapeo corregido - el problema está en que el HTML tiene "trabaja" pero el JS buscaba "trabajo"
+        const sectionRotations = {
+            'inicio': 0,
+            'servicios': 72,      
+            'trabaja': 144,       // CORREGIDO: debe ser "trabaja" como en el HTML
+            'proteccion': 216,    
+            'soluciona': 288     
+        };
 
         // Navigation functionality
-        document.querySelectorAll('[data-section]').forEach(element => {
-            element.addEventListener('click', function(e) {
-                e.preventDefault();
-                const section = this.getAttribute('data-section');
-                showSection(section);
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar la sección de inicio
+            showSection('inicio');
+            
+            // Agregar event listeners solo para clics
+            document.querySelectorAll('[data-section]').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const section = this.getAttribute('data-section');
+                    showSection(section);
+                });
             });
         });
 
@@ -21,9 +39,15 @@ let currentSlide = 0;
             const navCircle = document.querySelector(`.nav-circle[data-section="${sectionName}"]`);
             const navItem = document.querySelector(`.nav-item[data-section="${sectionName}"]`);
             
-            if (section) section.classList.add('active');
+            if (section) {
+                section.classList.add('active');
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
             if (navCircle) navCircle.classList.add('active');
             if (navItem) navItem.classList.add('active');
+
+            // Rotar el círculo a la posición correspondiente
+            rotateToSection(sectionName);
 
             // Reset carousel if switching to services
             if (sectionName === 'servicios') {
@@ -34,6 +58,31 @@ let currentSlide = 0;
             // Reset wheel if switching to soluciona
             if (sectionName === 'soluciona') {
                 resetWheel();
+            }
+        }
+
+        function rotateToSection(sectionName) {
+            const circularNav = document.querySelector('.circular-nav');
+            if (circularNav && sectionRotations[sectionName] !== undefined) {
+                const targetRotation = sectionRotations[sectionName];
+                
+                // Calcular la diferencia de rotación
+                let rotationDiff = targetRotation - currentRotation;
+                
+                // Si la diferencia es muy grande, usar el camino más corto
+                if (rotationDiff > 180) {
+                    rotationDiff -= 360;
+                } else if (rotationDiff < -180) {
+                    rotationDiff += 360;
+                }
+                
+                // Actualizar la rotación actual
+                currentRotation += rotationDiff;
+                
+                // Aplicar la rotación
+                circularNav.style.transform = `rotate(${currentRotation}deg)`;
+                
+                console.log(`Rotando a ${sectionName}: de ${currentRotation - rotationDiff}° a ${currentRotation}°`);
             }
         }
 
@@ -57,9 +106,10 @@ let currentSlide = 0;
             });
         });
 
-        // Auto-rotate carousel
+        // Auto-rotate carousel solo cuando la sección está activa
         setInterval(() => {
-            if (document.getElementById('servicios').classList.contains('active')) {
+            const serviciosSection = document.getElementById('servicios');
+            if (serviciosSection && serviciosSection.classList.contains('active')) {
                 currentSlide = (currentSlide + 1) % totalSlides;
                 updateCarousel();
             }
@@ -110,8 +160,3 @@ let currentSlide = 0;
             // Aquí puedes agregar la lógica para descargar el PDF
             alert('PDF descargado exitosamente');
         }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            showSection('inicio');
-        });

@@ -1,4 +1,4 @@
- * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -42,7 +42,7 @@
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 5px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
@@ -81,12 +81,14 @@
             justify-content: center;
         }
 
-        /* Circular Navigation Container */
+        /* Circular Navigation Container - CON ROTACIÓN CONTROLADA POR CLICS */
         .circular-nav {
             position: relative;
             left: -20rem;
             width: 400px;
             height: 400px;
+            transition: transform 0.8s ease-in-out;
+            transform-origin: center center;
         }
 
         /* Central Dark Circle */
@@ -121,12 +123,14 @@
         }
 
         .nav-circle:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
         .nav-circle.active {
+            transform: scale(1.1);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+            filter: brightness(1.1);
         }
 
         /* Positioning circles around the center */
@@ -245,7 +249,7 @@
             font-size: 2.5rem;
             margin-bottom: 40px;
             text-align: center;
-            color: #070E22;
+            color: white;
         }
 
         .carousel-container {
@@ -262,7 +266,7 @@
 
         .service-card {
             min-width: 25%;
-            padding: 20px 20px;
+            padding: 40px 0px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -375,28 +379,213 @@
             font-weight: bold;
         }
 
-        /* Proteccion Section */
+        /* Proteccion Section - NUEVO CON FONDO ESPECÍFICO */
         .proteccion-section {
-            background: #070E22;
+            background: linear-gradient(135deg, #070E22 0%, #1a1f35 50%, #070E22 100%);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(121, 133, 83, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(214, 35, 54, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(121, 133, 83, 0.1) 0%, transparent 40%);
             width: 100%;
             height: 100%;
             display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Logos pattern overlay */
+        .proteccion-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150"><g opacity="0.05" fill="white"><text x="10" y="20" font-family="Arial" font-size="8" font-weight="bold">SUPERINTENDENCIA</text><text x="10" y="30" font-family="Arial" font-size="8" font-weight="bold">DE BANCOS</text><circle cx="150" cy="20" r="10" fill="none" stroke="white" stroke-width="1"/><text x="10" y="50" font-family="Arial" font-size="7" font-weight="bold">CERES</text><text x="10" y="60" font-family="Arial" font-size="5">Responsabilidad Social</text><text x="10" y="67" font-family="Arial" font-size="5">y Sostenibilidad</text><text x="10" y="85" font-family="Arial" font-size="7" font-weight="bold">TSO</text><text x="100" y="50" font-family="Arial" font-size="8" font-weight="bold">MSP</text><text x="100" y="60" font-family="Arial" font-size="5">Ministerio</text><text x="100" y="67" font-family="Arial" font-size="5">de Salud Pública</text></g></svg>');
+            background-repeat: repeat;
+            background-size: 200px 150px;
+            z-index: 0;
         }
 
         .proteccion-left {
             flex: 1;
-       }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Círculos decorativos en protección */
+        .proteccion-left::after {
+            content: 'Soluciona tu deuda';
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            width: 120px;
+            height: 120px;
+            background-color: #798553;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.2;
+            z-index: 2;
+        }
+
+        .circle-2 {
+            position: absolute;
+            bottom: 25%;
+            left: 25%;
+            width: 140px;
+            height: 140px;
+            background-color: #D62336;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            line-height: 1.2;
+            z-index: 2;
+        }
+
+        .circle-3 {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            width: 160px;
+            height: 160px;
+            background-color: #798553;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.2;
+            z-index: 2;
+        }
 
         .proteccion-right {
             flex: 1;
-            padding: 40px;
+            padding: 20px 65px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin: 85px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 3;
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+
+        /* Sección de Tus Derechos */
+        .derechos-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .derechos-title {
+            color: #070E22;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .derechos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .derecho-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #D62336;
+        }
+
+        .derecho-icon {
+            width: 35px;
+            height: 35px;
+            background: #D62336;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+
+        .derecho-text h4 {
+            color: #070E22;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .derecho-text p {
+            color: #666;
+            font-size: 11px;
+            margin: 0;
+        }
+
+        .ejercer-derechos {
+            background: #798553;
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .ejercer-derechos h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .ejercer-derechos p {
+            margin-bottom: 12px;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .btn-descargar {
+            background: white;
+            color: #798553;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .btn-descargar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .form-field {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .form-field label {
@@ -404,24 +593,30 @@
             margin-bottom: 5px;
             color: #070E22;
             font-weight: bold;
+            font-size: 13px;
         }
 
         .form-field input, .form-field textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-size: 13px;
         }
 
         .btn-enviar {
             background-color: #070E22;
             color: white;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
             width: 100%;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
 
         /* Soluciona Section */
@@ -446,11 +641,12 @@
             height: 300px;
             border-radius: 50%;
             background: conic-gradient(
-                #D62336 0deg 72deg,
-                #798553 72deg 144deg,
-                #D62336 144deg 216deg,
-                #798553 216deg 288deg,
-                #D62336 288deg 360deg
+                #D62336 0deg 60deg,
+                #798553 60deg 120deg,
+                #D62336 120deg 180deg,
+                #798553 180deg 240deg,
+                #D62336 240deg 300deg,
+                #798553 300deg 360deg
             );
             display: flex;
             align-items: center;
@@ -490,7 +686,6 @@
             color: white;
         }
 
-        /* Discount Cards */
         .discount-cards {
             display: none;
             flex-direction: row;
@@ -545,7 +740,6 @@
             margin-top: 10px;
         }
 
-        /* Final Form */
         .final-form {
             display: none;
             background: #D62336;
@@ -560,6 +754,7 @@
             align-items: center;
             height: 100%;
             gap: 40px;
+            margin: 0px 0px 0px 134px;
         }
 
         .form-left {
@@ -641,6 +836,7 @@
 
         /* Footer */
         .footer {
+            display: grid;
             background-color: #070E22;
             color: white;
             text-align: center;
@@ -653,16 +849,6 @@
         .footer a {
             color: #D62336;
             text-decoration: none;
-        }
-
-        /* Animations */
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .circular-nav:hover {
-            animation: rotate 20s linear infinite;
         }
 
         /* Responsive */
