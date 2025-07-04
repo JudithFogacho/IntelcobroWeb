@@ -2,6 +2,7 @@ let currentSlide = 0;
 const totalSlides = 4;
 let currentRotation = 0;
 
+
         // Mapeo corregido - el problema está en que el HTML tiene "trabaja" pero el JS buscaba "trabajo"
         const sectionRotations = {
             'inicio': 0,

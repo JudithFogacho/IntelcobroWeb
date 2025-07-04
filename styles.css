@@ -139,13 +139,14 @@
             height: 180px;
             background-color: #798553;
             bottom: 142px;
-            right: -95px;
+            right: -115px;
         }
 
         .nav-circle.servicios {
             width: 180px;
             height: 180px;
             background-color: #D62336;
+            transform: rotate(17deg);
             top: -114px;
             right: 91px;
             writing-mode: sideways-lr;
@@ -156,6 +157,7 @@
             width: 180px;
             height: 180px;
             background-color: #D62336;
+            transform: rotate(53deg);
             top: 301px;
             left: -53px;
             font-size: 24px;
@@ -169,6 +171,7 @@
             width: 180px;
             height: 180px;
             background-color: #798553;
+            transform: rotate(-20deg);
             bottom: -83px;
             left: 191px;
             font-size: 25px;
@@ -178,7 +181,7 @@
         .nav-circle.trabajo {
             width: 180px;
             height: 180px;
-            transform: rotate(180deg);
+            transform: rotate(215deg);
             background-color: #798553;
             bottom: 174px;
             left: -102px;
@@ -322,7 +325,7 @@
             background: #070E22;
             width: 100%;
             height: 100%;
-            padding: 40px;
+            padding: 40px 40px 40px 164px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -478,7 +481,7 @@
 
         .proteccion-right {
             flex: 1;
-            padding: 20px 65px;
+            padding: 16px 16px 5px 65px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -631,9 +634,22 @@
             position: relative;
         }
 
+        .soluciona-section h2{
+            color: white;
+            padding: 32px;
+            font-size: 4rem;
+            justify-content: center;
+            align-items: center;
+        }
+
         .wheel-container {
-            position: relative;
-            margin-bottom: 30px;
+            
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Espacio entre elementos */
+            text-align: center;
+            padding: 20px;
         }
 
         .wheel-image {
@@ -651,7 +667,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             transition: transform 3s ease-out;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
@@ -668,11 +683,22 @@
             font-weight: bold;
             font-size: 1.2rem;
         }
+        
+        .label {
+            position: absolute;
+            width: 100px;
+            text-align: center;
+            transform: rotate(calc(var(--i)* 60deg)) translateY(92px) translateX(61px) rotate(calc(var(--i)* -60deg));
+            font-weight: bold;
+            color: white;
+            font-size: 32px;
+            pointer-events: none;
+        }
 
         .btn-girar {
             background-color: white;
             color: #070E22;
-            padding: 15px 40px;
+            padding: 15px 70px;
             border: 2px solid #070E22;
             border-radius: 25px;
             cursor: pointer;
@@ -836,7 +862,6 @@
 
         /* Footer */
         .footer {
-            display: grid;
             background-color: #070E22;
             color: white;
             text-align: center;
